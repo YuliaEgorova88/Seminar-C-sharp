@@ -1,0 +1,30 @@
+/Users/yuliyaskripnik/Desktop/SeminarC#/bin/Debug/net6.0/SeminarC#
+/Users/yuliyaskripnik/Desktop/SeminarC#/bin/Debug/net6.0/SeminarC#.deps.json
+/Users/yuliyaskripnik/Desktop/SeminarC#/bin/Debug/net6.0/SeminarC#.runtimeconfig.json
+/Users/yuliyaskripnik/Desktop/SeminarC#/bin/Debug/net6.0/SeminarC#.dll
+/Users/yuliyaskripnik/Desktop/SeminarC#/bin/Debug/net6.0/ref/SeminarC#.dll
+/Users/yuliyaskripnik/Desktop/SeminarC#/bin/Debug/net6.0/SeminarC#.pdb
+/Users/yuliyaskripnik/Desktop/SeminarC#/obj/Debug/net6.0/SeminarC#.csproj.AssemblyReference.cache
+/Users/yuliyaskripnik/Desktop/SeminarC#/obj/Debug/net6.0/SeminarC#.GeneratedMSBuildEditorConfig.editorconfig
+/Users/yuliyaskripnik/Desktop/SeminarC#/obj/Debug/net6.0/SeminarC#.AssemblyInfoInputs.cache
+/Users/yuliyaskripnik/Desktop/SeminarC#/obj/Debug/net6.0/SeminarC#.AssemblyInfo.cs
+/Users/yuliyaskripnik/Desktop/SeminarC#/obj/Debug/net6.0/SeminarC#.csproj.CoreCompileInputs.cache
+/Users/yuliyaskripnik/Desktop/SeminarC#/obj/Debug/net6.0/SeminarC#.dll
+/Users/yuliyaskripnik/Desktop/SeminarC#/obj/Debug/net6.0/ref/SeminarC#.dll
+/Users/yuliyaskripnik/Desktop/SeminarC#/obj/Debug/net6.0/SeminarC#.pdb
+/Users/yuliyaskripnik/Desktop/SeminarC#/obj/Debug/net6.0/SeminarC#.genruntimeconfig.cache
+/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/bin/Debug/net6.0/SeminarC#
+/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/bin/Debug/net6.0/SeminarC#.deps.json
+/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/bin/Debug/net6.0/SeminarC#.runtimeconfig.json
+/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/bin/Debug/net6.0/SeminarC#.dll
+/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/bin/Debug/net6.0/ref/SeminarC#.dll
+/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/bin/Debug/net6.0/SeminarC#.pdb
+/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/obj/Debug/net6.0/SeminarC#.csproj.AssemblyReference.cache
+/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/obj/Debug/net6.0/SeminarC#.GeneratedMSBuildEditorConfig.editorconfig
+/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/obj/Debug/net6.0/SeminarC#.AssemblyInfoInputs.cache
+/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/obj/Debug/net6.0/SeminarC#.AssemblyInfo.cs
+/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/obj/Debug/net6.0/SeminarC#.csproj.CoreCompileInputs.cache
+/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/obj/Debug/net6.0/SeminarC#.dll
+/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/obj/Debug/net6.0/ref/SeminarC#.dll
+/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/obj/Debug/net6.0/SeminarC#.pdb
+/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/obj/Debug/net6.0/SeminarC#.genruntimeconfig.cache
