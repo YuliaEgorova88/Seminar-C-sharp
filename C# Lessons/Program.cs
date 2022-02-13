@@ -303,7 +303,7 @@ int day = Convert.ToInt32(Console.ReadLine());
 
 if (day == 6 | day == 7) {
   Console.WriteLine("День недели номер " + day + " является выходным");  
-} else if (day == 2 | day == 1 | day == 3 | day == 4 | day == 5) {
+} else if (day < 6 && day > 0) {
     Console.WriteLine("Этот день - будний");
 } else {
     Console.WriteLine("Дня недели с таким номером нет.");
@@ -311,10 +311,9 @@ if (day == 6 | day == 7) {
 
 
 
-
 //17. По двум заданным числам проверять является ли одно квадратом другого
 
- 
+
 /*int a = new Random().Next(1, 99);
 Console.WriteLine(a);
 int b = new Random().Next(1, 99);
@@ -338,16 +337,16 @@ else {Console.WriteLine("Квадратов тут не найдено");
 //18. Проверить истинность утверждения ¬(X ⋁ Y) = ¬X ⋀ ¬Y
 // НЕ(Х или(||) Y) = НЕх и(&&) НЕy
 
-//bool x = false;     //Вырыжение получается истинным при любых значениях y и x
+//bool x = false;     
 //bool y = false;
 
-//bool x = false;     //Вырыжение получается истинным при любых значениях y и x
+//bool x = false;     
 //bool y = true;
 
-//bool x = true;      //Вырыжение получается истинным при любых значениях y и x
+//bool x = true;      
 //bool y = false;
 
-/*bool x = true;        //Вырыжение получается истинным при любых значениях y и x
+/*bool x = true;        
 bool y = true;
 
 Console.WriteLine(!(x || y));
@@ -560,17 +559,130 @@ Console.WriteLine(result);*/
 
 //26. Возведите число А в натуральную степень B используя цикл
 
+/*Console.WriteLine("Введите число A: ");
+int A = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите число B: ");
+int B = int.Parse(Console.ReadLine());
+int res = 1;
+
+for(int i = 0; i < B; i++) {
+    res *= A; 
+}
+Console.WriteLine("{0} в степени {1} = {2} ", A, B, res);*/
+
+   
+//27. Определить количество цифр в числе
+
+//int a = 1000; //new Random().Next (1,9999);
+//string s = a.ToString();
+//Console.WriteLine(s.Length);
 
 
-/*27. Определить количество цифр в числе
-28. Подсчитать сумму цифр в числе
-29. Написать программу вычисления произведения чисел от 1 до N
-30. Показать кубы чисел, заканчивающихся на четную цифру
+/*Console.WriteLine("Введите число: ");
+int number = int.Parse(Console.ReadLine());
+int i = 0;
 
-Почувствуй себя сеньором*
-31. Задать массив из 8 элементов и вывести их на экран
-32. Задать массив из 8 элементов, заполненных нулями и единицами вывести их на экран
-33. Задать массив из 12 элементов, заполненных числами из [0,9]. Найти сумму положительных/отрицательных элементов массива
+while (number >= 1)
+{
+    number = number / 10;
+    i++;
+}
+Console.WriteLine("Количество цифр в заданном числе равно " + i);*/
+
+//28. Подсчитать сумму цифр в числе
+
+
+/*Console.WriteLine("Введите число: ");
+int number = int.Parse(Console.ReadLine());
+int summ = 0;
+
+while(number > 0) {
+    summ += number % 10;
+    number = number / 10;
+}
+
+Console.WriteLine(summ);*/
+
+//29. Написать программу вычисления произведения чисел от 1 до N
+
+/*Console.WriteLine("Введите число: ");
+int number = int.Parse(Console.ReadLine());
+
+
+int Factor(int num) {
+    int result = 1;
+    for(int i = 1; i <= num; i++) {
+        result *= i;
+    }
+    return result;
+}
+
+Console.WriteLine(Factor(number));*/
+
+
+
+//30. Показать кубы чисел, заканчивающихся на четную цифру
+
+/*int number = new Random().Next(1, 100);
+Console.WriteLine(number);
+
+Console.WriteLine("Число, взятое для подсчетов " + number);
+for (int i = 1; i <= number; i++)
+{ 
+    if(i*i*i % 10 % 2 == 0){
+        Console.WriteLine($"{i} * {i} * {i} = {i*i*i}");
+    }
+    
+}*/
+
+
+//Почувствуй себя сеньором*
+
+//31. Задать массив из 8 элементов и вывести их на экран
+
+//int[] massive = { 8, 6, 9, 3, 0, 1, 4, 2 };
+
+//for (int i = 0; i < array.Length; i++)
+//{
+   // Console.Write(array[i] + " ");
+//}*/
+
+/*void function(int[] array) 
+{
+    for (int i = 0; i < array.Length; i++) 
+    Console.WriteLine(array[i]);
+}
+function(massive);*/
+
+
+
+
+//32. Задать массив из 8 элементов, заполненных нулями и единицами вывести их на экран
+
+/*int[] MyArray = new int[8];
+
+void FillArray(int[] numbers)
+{
+    int length = numbers.Length;
+    int index = 0;
+    while (index < length)
+    {
+        numbers[index] = new Random().Next(0, 2);
+        index++; 
+    }
+}
+
+FillArray(MyArray);
+for (int i = 0; i < MyArray.Length; i++)
+{
+   Console.Write(MyArray[i] + " ");
+}
+
+*/
+
+
+
+/*33. Задать массив из 12 элементов, заполненных числами из [0,9]. Найти сумму положительных/отрицательных элементов массива
 34. Написать программу замену элементов массива на противоположные
 35. Определить, присутствует ли в заданном массиве, некоторое число
 36. Задать массив, заполнить случайными положительными трёхзначными числами. Показать количество нечетных\четных чисел
