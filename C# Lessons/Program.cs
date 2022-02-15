@@ -570,7 +570,7 @@ for(int i = 0; i < B; i++) {
 }
 Console.WriteLine("{0} в степени {1} = {2} ", A, B, res);*/
 
-   
+
 //27. Определить количество цифр в числе
 
 //int a = 1000; //new Random().Next (1,9999);
@@ -644,7 +644,7 @@ for (int i = 1; i <= number; i++)
 
 //for (int i = 0; i < array.Length; i++)
 //{
-   // Console.Write(array[i] + " ");
+// Console.Write(array[i] + " ");
 //}*/
 
 /*void function(int[] array) 
@@ -683,12 +683,107 @@ for (int i = 0; i < MyArray.Length; i++)
 
 
 /*33. Задать массив из 12 элементов, заполненных числами из [0,9]. Найти сумму положительных/отрицательных элементов массива
-34. Написать программу замену элементов массива на противоположные
-35. Определить, присутствует ли в заданном массиве, некоторое число
-36. Задать массив, заполнить случайными положительными трёхзначными числами. Показать количество нечетных\четных чисел
-37. В одномерном массиве из 123 чисел найти количество элементов из отрезка [10,99]
-38. Найти сумму чисел одномерного массива стоящих на нечетной позиции
-39. Найти произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д.
+
+/*int[] mat = new int[12];
+int sumP = 0;
+int sumN = 0;
+for (int i = 0; i < mat.Length; i++)
+{
+    mat[i] = new Random().Next(0, 10);
+    Console.Write(mat[i] + ";");
+}
+Console.WriteLine();
+for (int i = 0; i < mat.Length; i++)
+{
+    if (mat[i] > 0)
+        sumP = sumP + mat[i];
+    else
+        sumN = sumN + mat[i];
+}
+Console.WriteLine($"Сумма положительных элементов = {sumP}");
+Console.WriteLine($"Сумма отрицательных элементов = {sumN}");*/
+
+
+
+//34. Написать программу замену элементов массива на противоположные
+
+
+//35. Определить, присутствует ли в заданном массиве, некоторое число
+
+/*int[] mat = new int[12];
+
+Console.WriteLine("Массив");
+for (int i = 0; i < mat.Length; i++)
+{
+    mat[i] = new Random().Next(0, 10);
+    Console.Write(mat[i] + ";");
+}
+Console.WriteLine();
+Console.WriteLine("Введите искомое число");
+int x=int.Parse(Console.ReadLine());
+bool exist=false;
+for (int i = 0; i < mat.Length; i++)
+{
+    if (mat[i]==x)
+    {
+        exist=true;
+        break;
+    }
+}
+if (exist) Console.WriteLine($"В массиве присутствует искомое число {x}");
+else Console.WriteLine($"В массиве  не присутствует искомое число {x}");*/
+
+
+//36. Задать массив, заполнить случайными положительными трёхзначными числами. Показать количество нечетных\четных чисел
+
+
+//37. В одномерном массиве из 123 чисел найти количество элементов из отрезка [10,99]
+
+
+/*int[] array = new int [123];
+
+for (int a = 0; a< array.Length;a++)
+{
+    array[a]= new Random().Next(0, 1000);
+    Console.Write(array[a]+" ");
+    
+}
+Console.WriteLine();
+int count = 0;
+for(int i = 0; i<array.Length; i++)
+{
+    if(array[i]>=10 && array[i]<=99) 
+    {
+        count++;
+        Console.Write(array[i] + " ");
+    }
+
+}
+Console.WriteLine("\n Количество элементов из диапазона 10 - 99 равно " + count);*/
+
+
+//38. Найти сумму чисел одномерного массива стоящих на нечетной позиции
+
+
+//39. Найти произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д.
+
+/*int[] array = new int [8];
+int result = 1;
+for (int a = 0; a< array.Length;a++)
+{
+    array[a]= new Random().Next(1, 100);
+    Console.Write(array[a]+" ");
+    
+}
+Console.WriteLine();
+for (int i = 0; i< (array.Length+1)/2;i++)
+{
+    result = array[i]*array[array.Length-1-i];
+    Console.WriteLine($"Произведение {array[i]} и {array[array.Length-1-i]} = {result}");
+}*/
+
+
+/*
 40. В Указанном массиве вещественных чисел найдите разницу между максимальным и минимальным элементом
 
 Почувствуй себя лидом*
