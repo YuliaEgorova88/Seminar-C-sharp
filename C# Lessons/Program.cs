@@ -707,6 +707,52 @@ Console.WriteLine($"Сумма отрицательных элементов = {
 
 //34. Написать программу замену элементов массива на противоположные
 
+/*void FillArray(int[] array)
+{
+    int length = array.Length;
+    int index = 0;
+    while (index < length)
+    {
+        array[index] = new Random().Next(-20, 10);
+        index++;
+    }
+}
+
+void PrintArray(int[] array2)
+{
+    int count = array2.Length;
+    int position = 0;
+    while (position < count)
+    {
+        Console.WriteLine(array2[position]);
+        position++;
+    }
+}
+
+void ChangeElements(int[] array3)
+{
+    int count = array3.Length;
+    int position = 0;
+    while (position < count)
+    {
+        array3[position] = -array3[position];
+        Console.WriteLine(array3[position]);
+        position++;
+    }
+}
+
+
+
+int[] array = new int[10];
+
+FillArray(array);
+
+PrintArray(array);
+Console.WriteLine();
+
+ChangeElements(array);
+Console.WriteLine();*/
+
 
 //35. Определить, присутствует ли в заданном массиве, некоторое число
 
@@ -735,6 +781,63 @@ else Console.WriteLine($"В массиве  не присутствует иск
 
 
 //36. Задать массив, заполнить случайными положительными трёхзначными числами. Показать количество нечетных\четных чисел
+
+/*void FillArray(int[] array)
+{
+    int length = array.Length;
+    int index = 0;
+    while (index < length)
+    {
+        array[index] = new Random().Next(100, 500);
+        index++;
+    }
+}
+
+void ArrayPrint(int[] even)
+{
+    int count = even.Length;
+    int position = 0;
+    while (position < count)
+    {
+        Console.WriteLine(even[position]);
+        position++;
+    }
+}
+
+void ArrayEven(int[] even)
+{
+    int count = even.Length;
+    int pos = 0;
+    int resultPos = 0;
+    int resultNeg = 0;
+    while (pos < count)
+    {
+        if (even[pos] % 2 == 0)
+        {
+            resultPos++;
+        }
+        else if (even[pos] % 2 == 1)
+        {
+            resultNeg++;
+        }
+
+        pos++;
+    }
+    Console.WriteLine("Кол-во четных чисел в массиве = " + resultPos);
+    Console.WriteLine("Кол-во нечетных чисел в массиве = " + resultNeg);
+
+}
+
+int[] array = new int[5];
+
+FillArray(array);
+
+
+ArrayPrint(array);
+Console.WriteLine();
+
+ArrayEven(array);
+Console.WriteLine();*/
 
 
 //37. В одномерном массиве из 123 чисел найти количество элементов из отрезка [10,99]
@@ -765,6 +868,55 @@ Console.WriteLine("\n Количество элементов из диапаз�
 //38. Найти сумму чисел одномерного массива стоящих на нечетной позиции
 
 
+/*void FillArray(int[] array)
+{
+    int length = array.Length;
+    int index = 0;
+    while (index < length)
+    {
+        array[index] = new Random().Next(1, 50);
+        index++;
+    }
+}
+
+void ArrayPrint(int[] even)
+{
+    int count = even.Length;
+    int position = 0;
+    while (position < count)
+    {
+        Console.WriteLine(even[position]);
+        position++;
+    }
+}
+
+void SummArray(int[] numbers)
+{
+    int count = numbers.Length;
+    int i = 1;
+    int summ = 0;
+
+    while (i < count)
+    {
+        summ += numbers[i];
+        i = i + 2;
+    }
+    Console.WriteLine("Сумма чисел, стоящих на нечетной позиции в массиве = " + summ);
+}
+
+int[] array = new int[10];
+
+FillArray(array);
+
+
+ArrayPrint(array);
+Console.WriteLine();
+
+SummArray(array);
+Console.WriteLine();*/
+
+
+
 //39. Найти произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д.
 
 /*int[] array = new int [8];
@@ -783,10 +935,109 @@ for (int i = 0; i< (array.Length+1)/2;i++)
 }*/
 
 
-/*
-40. В Указанном массиве вещественных чисел найдите разницу между максимальным и минимальным элементом
 
-Почувствуй себя лидом*
+
+
+
+
+
+//40. В Указанном массиве вещественных чисел найдите разницу между максимальным и минимальным элементом
+
+
+void FillArray(int[] array)
+{
+    int length = array.Length;
+    int index = 0;
+    while (index < length)
+    {
+        array[index] = new Random().Next(1, 10);
+        index++;
+    }
+}
+
+void ArrayPrint(int[] even)
+{
+    int count = even.Length;
+    int position = 0;
+    while (position < count)
+    {
+        Console.WriteLine(even[position]);
+        position++;
+    }
+}
+
+/*void MaxArray(int[] numbers)
+{
+    int max = numbers[0];
+    for (int i = 0; i < numbers.Length; i++)
+    {
+        if (numbers[i] > max)
+            max = numbers[i];
+    }
+    Console.WriteLine("Максимальный элемент в массиве = " + max);
+}
+
+void MinArray(int[] numbers)
+{
+    int min = numbers[0];
+    for (int i = 0; i < numbers.Length; i++)
+    {
+        if (numbers[i] < min)
+            min = numbers[i];
+    }
+
+    Console.WriteLine("Минимальный элемент в массиве = " + min);
+}*/
+
+
+void MinMaxArray(int[] numbers)
+{
+    int max = numbers[0];
+    int min = numbers[0];
+    int result = 0;
+    for (int i = 0; i < numbers.Length; i++)
+    {
+        if (numbers[i] > max)
+            max = numbers[i];
+    }
+    for (int i = 0; i < numbers.Length; i++)
+    {
+        if (numbers[i] < min)
+            min = numbers[i];
+    }
+    Console.WriteLine("Минимальный элемент в массиве = " + min);
+    Console.WriteLine("Максимальный элемент в массиве = " + max);
+    result = max - min;
+    Console.WriteLine("Разница минимального и максимального элементов массива = " + result);
+}
+
+
+
+int[] array = new int[5];
+
+FillArray(array);
+
+
+ArrayPrint(array);
+Console.WriteLine();
+
+MinMaxArray(array);
+Console.WriteLine();
+/*MinArray(array);
+Console.WriteLine();
+
+MaxArray(array);
+Console.WriteLine();*/
+
+
+
+
+
+
+
+
+
+/*Почувствуй себя лидом*
 41. Выяснить являются ли три числа сторонами треугольника
 42. Определить сколько чисел больше 0 введено с клавиатуры
 43. Написать программу преобразования десятичного числа в двоичное

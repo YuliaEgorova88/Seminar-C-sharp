@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/SeminarC#.csproj": {}
+    "/Users/yuliyaskripnik/Desktop/C#/C# Lessons/SeminarC#.csproj": {}
   },
   "projects": {
-    "/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/SeminarC#.csproj": {
+    "/Users/yuliyaskripnik/Desktop/C#/C# Lessons/SeminarC#.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/SeminarC#.csproj",
+        "projectUniqueName": "/Users/yuliyaskripnik/Desktop/C#/C# Lessons/SeminarC#.csproj",
         "projectName": "SeminarC#",
-        "projectPath": "/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/SeminarC#.csproj",
+        "projectPath": "/Users/yuliyaskripnik/Desktop/C#/C# Lessons/SeminarC#.csproj",
         "packagesPath": "/Users/yuliyaskripnik/.nuget/packages/",
-        "outputPath": "/Users/yuliyaskripnik/Desktop/SeminarC#/C# Lessons/obj/",
+        "outputPath": "/Users/yuliyaskripnik/Desktop/C#/C# Lessons/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/yuliyaskripnik/.nuget/NuGet/NuGet.Config"
