@@ -2287,18 +2287,102 @@ for (int i = 0; i < k; i++)
 } */
 
 /*
-61. Найти произведение двух матриц
+//61. Найти произведение двух матриц
+
+//Console.WriteLine("Введите количество строк");
+int str = 3;//int.Parse(Console.ReadLine());
+//Console.WriteLine("Введите количество столбцов");
+int coll = 4;//int.Parse(Console.ReadLine());
+
+int[,] NewArray(int a, int b)
+{
+    int[,] array = new int[a, b];
+    return array;
+}
+
+int[,] FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(-5, 10);
+        }
+    return matr;
+}
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($"{matr[i, j]}  ");
+        }
+        Console.WriteLine();
+    }
+}
+
+int[,] MatrixSolution(int[,] array1, int[,] array2)
+{
+    int[,] item = new int[array1.GetLength(0), array2.GetLength(1)];
+
+    for (int i = 0; i < array1.GetLength(0); i++)
+        for (int j = 0; j < array2.GetLength(1); j++)
+            for (int a = 0; a < array1.GetLength(1); a++)
+                item[i, j] += array1[i, a] * array2[a, j];
+    return item;
+}
+
+int[,] MyArray1 = NewArray(coll, str);
+int[,] MyArray2 = NewArray(str, coll);
+FillArray(MyArray1);
+FillArray(MyArray2);
+PrintArray(MyArray1);
+Console.WriteLine();
+PrintArray(MyArray2);
+Console.WriteLine();
+PrintArray(MatrixSolution(MyArray1, MyArray2));
+
+*/
+//62. В двумерном массиве целых чисел. Удалить строку и столбец, на пересечении которых расположен наименьший элемент.
+
+//Console.WriteLine("Введите количество строк");
+int str = 3;//int.Parse(Console.ReadLine());
+//Console.WriteLine("Введите количество столбцов");
+int coll = 7;//int.Parse(Console.ReadLine());
+
+int[,] NewArray(int a, int b)
+{
+    int[,] array = new int[a, b];
+    return array;
+}
+
+int[,] FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(0, 100);
+        }
+    return matr;
+}
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($"{matr[i, j]}  ");
+        }
+        Console.WriteLine();
+    }
+}
 
 
 
 
-
-
-62. В двумерном массиве целых чисел. Удалить строку и столбец, на пересечении которых расположен наименьший элемент.
-
-
-
-
+/*
 63. Сформировать трехмерный массив не повторяющимися двузначными числами показать его построчно на экран выводя индексы соответствующего элемента
 
 
