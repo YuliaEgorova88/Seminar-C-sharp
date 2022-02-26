@@ -1249,7 +1249,7 @@ for (int i = 0; i < count; i++)
 при k = 2 получаем "(0,0) (4,0) (4,4) (0,4)"*/
 
 
-using System.Linq;
+/*using System.Linq;
 
 string FigureHeights = "(0,0) (2,0) (2,2) (0,2)"
                         .Replace("(", "")
@@ -1269,7 +1269,7 @@ for (int i = 0; i < data.Length; i++)
 {
     Console.WriteLine(data[i]);
 
-}
+}*/
 
 
 
@@ -1310,19 +1310,701 @@ PrintArray(newArray);
 */
 
 
-/*Двумерные массивы
-48. Показать двумерный массив размером m×n заполненный целыми числами
-49. Показать двумерный массив размером m×n заполненный вещественными числами
-50. В двумерном массиве n×k заменить четные элементы на противоположные
-51. Задать двумерный массив следующим правилом: Aₘₙ = m+n
+//Двумерные массивы
+//48. Показать двумерный массив размером m×n заполненный целыми числами
+
+/*void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($" {matr[i, j]}");
+        }
+        Console.WriteLine();
+    }
+}
+
+void FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(1, 100) ; // заполняем числами [0,100)
+        }
+    }
+}
+int[,] array = new int[3,4];
+FillArray(array);
+PrintArray(array);*/
+
+
+
+//49. Показать двумерный массив размером m×n заполненный вещественными числами
+
+/*Console.WriteLine("Введите число строк: ");
+int num1 = Convert.ToInt16(Console.ReadLine());
+Console.WriteLine("Введите число столбцов: ");
+int num2 = Convert.ToInt16(Console.ReadLine());
+
+double[,] NewArray(int a, int b)
+{
+    double[,] array = new double[a, b];
+    return array;
+}
+
+void FillArray(double[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = Math.Round((new Random().Next(1, 10) + new Random().NextDouble()), 4);
+        }
+
+    }
+}
+
+void PrintArray(double[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($" {array[i, j]}  ");
+        }
+        Console.WriteLine();
+    }
+}
+
+
+double[,] array = NewArray(num1, num2);
+FillArray(array);
+PrintArray(array);*/
+
+
+
+/*50. В двумерном массиве n×k заменить четные элементы на противоположные
+
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($" {matr[i, j]}");
+        }
+        Console.WriteLine();
+    }
+}
+
+void FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(1, 100); // заполняем числами [0,100)
+        }
+    }
+}
+
+Console.WriteLine("Введите количество строк");
+int m = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите количество столбцов");
+int n = int.Parse(Console.ReadLine());
+int[,] array = new int[m, n];
+FillArray(array);
+PrintArray(array);
+for (int i = 0; i < array.GetLength(0); i++)
+{
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        if (array[i, j] % 2 == 0) array[i, j] = -array[i, j];
+    }
+}
+Console.WriteLine();
+PrintArray(array);*/
+
+
+
+//51. Задать двумерный массив следующим правилом: Aₘₙ = m+n
+
+
+/*
+void FillArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(1, 10);
+        }
+    }
+}
+
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($" {array[i, j]}");
+        }
+        Console.WriteLine();
+    }
+}
+
+Console.WriteLine("Введите количество строк");
+int m = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите количество столбцов");
+int n = int.Parse(Console.ReadLine());
+
+
+int[,] array = new int[m, n];
+FillArray(array);
+PrintArray(array);
+
+for (int i = 0; i < array.GetLength(0); i++)
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        array[i, j] = i + j;
+    }
+
+
+
+Console.WriteLine();
+PrintArray(array);*/
+
+
+/*
 52. В двумерном массиве заменить элементы, у которых оба индекса чётные на их квадраты
-53. В двумерном массиве показать позиции числа, заданного пользователем или указать, что такого элемента нет
+
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($" {matr[i, j]}");
+        }
+        Console.WriteLine();
+    }
+}
+
+void FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(1, 10); 
+        }
+    }
+}
+
+Console.WriteLine("Введите количество строк");
+int m = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите количество столбцов");
+int n = int.Parse(Console.ReadLine());
+int[,] array = new int[m, n];
+FillArray(array);
+PrintArray(array);
+for (int i = 0; i < array.GetLength(0); i+=2)
+{
+    for (int j = 0; j < array.GetLength(1); j+=2)
+    {
+        array[i, j] = array[i, j] *  array[i, j];
+    }
+}
+Console.WriteLine();
+PrintArray(array);
+*/
+
+
+
+//53. В двумерном массиве показать позиции числа, заданного пользователем или указать, что такого элемента нет
+/*
+int[,] NewArray(int a, int b)
+{
+    int[,] array = new int[a, b];
+    return array;
+}
+
+int[,] FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(1, 10);
+        }
+    return matr;
+}
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($" {matr[i, j]}");
+        }
+        Console.WriteLine();
+    }
+}
+
+Console.WriteLine("Введите количество строк");
+int num1 = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите количество столбцов");
+int num2 = int.Parse(Console.ReadLine());
+
+Console.WriteLine("Введите число: ");
+int numberPosition = int.Parse(Console.ReadLine());
+
+void FindElement(int[,] array, int num)
+{
+    int count = 0;
+    for (int i = 0; i < array.GetLength(0); i++)
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (array[i, j] == num)
+            {
+                Console.WriteLine($"Число {num} находится в строке {i + 1} и столбце {j + 1}");
+                count++;
+            }
+        }
+    if (count == 0) Console.WriteLine($"Числа {num} нет в массиве.");
+}
+
+int[,] MyArray = NewArray(num1, num2);
+FillArray(MyArray);
+PrintArray(MyArray);
+Console.WriteLine();
+FindElement(MyArray, numberPosition);*/
+
+/*
 54. В матрице чисел найти сумму элементов главной диагонали
-55. Дан целочисленный массив. Найти среднее арифметическое каждого из столбцов.
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($" {matr[i, j]}");
+        }
+        Console.WriteLine();
+    }
+}
+
+void FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(1, 100); // заполняем числами [0,100)
+        }
+    }
+}
+
+Console.WriteLine("Введите количество строк");
+int m = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите количество столбцов");
+int n = int.Parse(Console.ReadLine());
+int[,] array = new int[m, n];
+FillArray(array);
+PrintArray(array);
+
+int sum = 0;
+
+for (int i = 0; i < array.GetLength(0); i++)
+{
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        if(i==j) 
+        {
+            sum += array[i, j];
+        }
+    }
+}
+Console.WriteLine(sum);
+
+
+ВАРИАНТ КОРОЧЕ!!!!
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($" {matr[i, j]}");
+        }
+        Console.WriteLine();
+    }
+}
+
+void FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(1, 100); // заполняем числами [0,100)
+        }
+    }
+}
+
+Console.WriteLine("Введите количество строк");
+int m = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите количество столбцов");
+int n = int.Parse(Console.ReadLine());
+int[,] array = new int[m, n];
+FillArray(array);
+PrintArray(array);
+int sum = 0;
+int size = 0;
+if ( m > n) size = m;
+else size = m;
+for (int i = 0; i < array.GetLength(0); i++)
+{
+ sum += array[i, i];
+}
+Console.WriteLine(sum);
+*/
+
+
+
+//55. Дан целочисленный массив. Найти среднее арифметическое каждого из столбцов.
+/*
+Console.WriteLine("Введите количество строк");
+int str = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите количество столбцов");
+int coll = int.Parse(Console.ReadLine());
+
+int[,] NewArray(int a, int b)
+{
+    int[,] array = new int[a, b];
+    return array;
+}
+
+int[,] FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(1, 10);
+        }
+    return matr;
+}
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($" {matr[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+
+void PrintArraySecond(int[] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+
+        Console.Write($"{matr[i]} ");
+    }
+}
+
+int[] Average(int[,] array)
+{
+    int[] array1 = new int[array.GetLength(1)];
+    int sum = 0;
+
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            sum += array[j, i];
+        }
+        array1[i] = sum / array.GetLength(1);
+        sum = 0;
+    }
+    return array1;
+}
+
+int[,] MyArray = NewArray(str, coll);
+FillArray(MyArray);
+PrintArray(MyArray);
+Console.WriteLine();
+PrintArraySecond(Average(MyArray));*/
+
+/*
 56. Написать программу, которая обменивает элементы первой строки и последней строки
-57. Написать программу, упорядочивания по убыванию элементы каждой строки двумерной массива.
-58. Написать программу, которая в двумерном массиве заменяет строки на столбцы или сообщить, что это невозможно (в случае, если матрица не квадратная).
-59. В прямоугольной матрице найти строку с наименьшей суммой элементов.
+
+for (int i = 0; i < array.GetLength(1); i++)
+{
+    int num = array[0, i];
+    array[0, i] = array[array.GetLength(0) - 1, i];
+    array[array.GetLength(0) - 1, i] = num;
+}
+
+от vadik sergeev для Все (10:32)
+
+
+
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($" {matr[i, j]}");
+        }
+        Console.WriteLine();
+    }
+}
+
+void FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(1, 100); // заполняем числами [0,100)
+        }
+    }
+}
+
+
+int[,] array = new int[3, 5];
+FillArray(array);
+PrintArray(array);
+int k=0;
+for (int i = 0; i < array.GetLength(1); i++)
+{
+    int num = array[0, i];
+    array[0, i] = array[array.GetLength(0) - 1, i];
+    array[array.GetLength(0) - 1, i] = num;
+}
+Console.WriteLine();
+PrintArray(array);*/
+
+
+/*
+//57. Написать программу, упорядочивания по убыванию элементы каждой строки двумерной массива.
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($" {matr[i, j]}");
+        }
+        Console.WriteLine();
+    }
+}
+
+int[,] FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(1, 10);
+        }
+    return matr;
+}
+
+int[,] NewArray(int a, int b)
+{
+    int[,] array = new int[a, b];
+    return array;
+}
+
+Console.WriteLine("Введите количество строк");
+int str = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите количество столбцов");
+int coll = int.Parse(Console.ReadLine());
+
+int[,] ReplaceElement(int[,] array, int num)
+{
+    int score = 0;
+    for (int a = (array.GetLength(1) - 1); a != 0; a--)
+        for (int i = 0; i < a; i++)
+        {
+            if (array[num, i] < array[num, i + 1])
+            {
+                score = array[num, i + 1];
+                array[num, i + 1] = array[num, i];
+                array[num, i] = score;
+            }
+        }
+    return array;
+}
+
+int[,] ReplaceAllElements(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++) ReplaceElement(array, i);
+    return array;
+}
+
+int[,] MyArray = NewArray(str, coll);
+PrintArray(FillArray(MyArray));
+Console.WriteLine();
+PrintArray(ReplaceAllElements(MyArray));
+*/
+
+
+/*58. Написать программу, которая в двумерном массиве заменяет строки на столбцы или сообщить, что это невозможно (в случае, если матрица не квадратная).
+
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($" {matr[i, j]}");
+        }
+        Console.WriteLine();
+    }
+}
+
+void FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(1, 100); // заполняем числами [0,100)
+        }
+    }
+}
+
+if (n == m)
+{
+    for (int i = 0; i < array.GetLength(1); i++)
+
+        for (int j = 0; j < i; j++)
+        {
+            int num = array[i, j];
+            array[i, j] = array[j, i];
+            array[j, i] = num;
+        }
+}
+else
+{
+    Console.WriteLine("Поменять местами строки и столбцы нельзя. Матрица не квадратная");
+}
+
+Console.WriteLine();
+PrintArray(array);
+
+//////////////////////////////////////////////
+for (int i = 0; i < mass.GetLength(0); i++)
+    {
+        for (int j = 0; j < mass.GetLength(1); j++)
+        {
+            mass[i,j]=array[j,i];
+        }
+    }
+    PrintArr(mass);
+
+
+*/
+//59. В прямоугольной матрице найти строку с наименьшей суммой элементов.
+/*
+//Console.WriteLine("Введите количество строк");
+int str = 3;//int.Parse(Console.ReadLine());
+//Console.WriteLine("Введите количество столбцов");
+int coll = 7;//int.Parse(Console.ReadLine());
+
+int[,] NewArray(int a, int b)
+{
+    int[,] array = new int[a, b];
+    return array;
+}
+
+int[,] FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(0, 100);
+        }
+    return matr;
+}
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($"{matr[i, j]}  ");
+        }
+        Console.WriteLine();
+    }
+}
+
+int[] SummElements(int[,] array)
+{
+    int[] array1 = new int[array.GetLength(0)];
+    int sum = 0;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            sum += array[i, j];
+        }
+        array1[i] = sum;
+        sum = 0;
+    }
+    return array1;
+}
+
+int MinimalElement(int[] array)
+{
+    int minValue = array[0];
+    int minIndex = 0;
+    for (int i = 1; i < array.Length; i++)
+    {
+        if (minValue < array[1])
+        {
+            minValue = array[i];
+            minIndex = i;
+        }
+    }
+    return minIndex;
+}
+
+void PrintMinElement(int[,] array, int[] array1)
+{
+    array1 = SummElements(array);
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        Console.Write($"{array[MinimalElement(array1), j]} ");
+    }
+    Console.WriteLine($" Сумма данной строки: {array1[MinimalElement(array1)]}");
+}
+
+int[,] MyArray = NewArray(str, coll);
+int[] Amount = new int[MyArray.GetLength(0)];
+FillArray(MyArray);
+PrintArray(MyArray);
+Console.WriteLine();
+PrintMinElement(MyArray, Amount);
+
+
+*//*
 60. Составить частотный словарь элементов двумерного массива
 Частотный словарь содержит информацию о том, сколько раз встречается элемент входных данных.
 Пример: Есть набор данных
@@ -1382,15 +2064,271 @@ PrintArray(newArray);
 Символ ц встречается 1 раз.   Частота 0.30%
 Символ . встречается 1 раз.   Частота 0.30%
 url
+
+
+void frequencyOutputArray(int[,] arr, int[,] arrOutput)
+{
+    int index = 0;
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            int count = 0;
+            for (int m = i; m < arr.GetLength(0); m++)
+            {
+                for (int n = 0; n < arr.GetLength(1); n++)
+                {
+                    if (arr[m, n] == arr[i, j]) count++;                    
+                }
+            }
+            for (int d = 0; d <= index; d++)
+            {
+                if (d == index)
+                {
+                    arrOutput[index, 0] = arr[i, j];
+                    arrOutput[index, 1] = count;
+                    index++;
+                    break;
+                }
+                if (arr[i, j] == arrOutput[d, 0] && arrOutput[d, 1] > 0) break;                
+            }
+
+        }
+    }
+}
+от Stanislav для Все (11:35)
+int[,] array = new int[3, 3];
+FillArray(array);
+PrintArray(array);
+Console.WriteLine();
+int[,] frequencyAnalysArray = new int[array.GetLength(0) * array.GetLength(1), 2];
+от Stanislav для Все (11:35)
+frequencyOutputArray(array, frequencyAnalysArrays);
+sortArray(frequencyAnalysArrays);
+for (int i = 0; i < frequencyAnalysArrays.GetLength(0) && frequencyAnalysArrays[i, 1] > 0; i++)
+    Console.WriteLine($"{frequencyAnalysArrays[i, 0]} встречается {frequencyAnalysArrays[i, 1]} раз");
+от Stanislav для Все (11:35)
+void sortArray(int[,] arr)
+{
+    for (int j = 0; j < arr.GetLength(0); j++)
+    {
+        int min = arr[j, 0];
+        for (int n = j + 1; n < arr.GetLength(0); n++)
+        {
+            if (arr[n, 0] < min && arr[n, 1] > 0)
+            {
+                arr[j, 0] = arr[n, 0];
+                arr[n, 0] = min;
+                min = arr[j, 1];
+                arr[j, 1] = arr[n, 1];
+                arr[n, 1] = min;
+                min = arr[j, 0];
+            }
+        }
+    }
+}
+////////////////////////////полное верное решение!!!!!!!!!!!!
+
+// Составить частотный словарь элементов двумерного массива
+
+void PrintArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($" {matr[i, j]}");
+        }
+        Console.WriteLine();
+    }
+}
+
+void FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(1, 10); // заполняем числами [0,10)
+        }
+    }
+}
+
+void frequencyOutputArray(int[,] arr, int[,] arrOutput)
+{
+    int index = 0;
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            int count = 0;
+            for (int m = i; m < arr.GetLength(0); m++)
+            {
+                for (int n = 0; n < arr.GetLength(1); n++)
+                {
+                    if (arr[m, n] == arr[i, j]) count++;
+                }
+            }
+            for (int d = 0; d <= index; d++)
+            {
+                if (d == index)
+                {
+                    arrOutput[index, 0] = arr[i, j];
+                    arrOutput[index, 1] = count;
+                    index++;
+                    break;
+                }
+                if (arr[i, j] == arrOutput[d, 0] && arrOutput[d, 1] > 0) break;
+            }
+
+        }
+    }
+}
+
+void sortArray(int[,] arr)
+{
+    for (int j = 0; j < arr.GetLength(0); j++)
+    {
+        int min = arr[j, 0];
+        for (int n = j + 1; n < arr.GetLength(0); n++)
+        {
+            if (arr[n, 0] < min && arr[n, 1] > 0)
+            {
+                arr[j, 0] = arr[n, 0];
+                arr[n, 0] = min;
+                min = arr[j, 1];
+                arr[j, 1] = arr[n, 1];
+                arr[n, 1] = min;
+                min = arr[j, 0];
+            }
+        }
+    }
+}
+
+int[,] array = new int[3, 3];
+
+FillArray(array);
+PrintArray(array);
+Console.WriteLine();
+
+int[,] frequencyAnalysArrays = new int[array.GetLength(0) * array.GetLength(1), 2];
+
+frequencyOutputArray(array, frequencyAnalysArrays);
+sortArray(frequencyAnalysArrays);
+for (int i = 0; i < frequencyAnalysArrays.GetLength(0) && frequencyAnalysArrays[i, 1] > 0; i++)
+    Console.WriteLine($"{frequencyAnalysArrays[i, 0]} встречается {frequencyAnalysArrays[i, 1]} раз");
+
+
+   // Составить частотный словарь элементов двумерного массива
+
+void FillArr(int[,] arr)
+{
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            arr[i, j] = new Random().Next(0, 10);
+        }
+    }
+}
+void PrintArr(int[,] arr)
+{
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            Console.Write(arr[i, j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+int m = 6;
+int n = 6;
+int[,] array = new int[m, n];
+FillArr(array);
+PrintArr(array);
+Console.WriteLine();
+от Albert для Все (12:22)
+int[,] dictionary = new int[m * n, 2];
+
+int k = 0;
+
+bool exist = false;
+
+for (int i = 0; i < array.GetLength(0); i++)
+{
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        exist = false;
+        for (int r = 0; r < k; r++)
+        {
+            if (dictionary[r, 0] == array[i, j])
+            {
+                dictionary[r, 1]++;
+                exist = true;
+                break;
+            }
+        }
+        if (exist == false)
+        {
+            dictionary[k, 0] = array[i, j];
+            dictionary[k, 1]++;
+            k++;
+        }      
+    }
+}
+for (int i = 0; i < k; i++)
+{
+    for (int j = 0; j < dictionary.GetLength(1); j++)
+    {
+        Console.Write(dictionary[i, j] + " ");
+    }
+    Console.WriteLine();
+} */
+
+/*
 61. Найти произведение двух матриц
+
+
+
+
+
+
 62. В двумерном массиве целых чисел. Удалить строку и столбец, на пересечении которых расположен наименьший элемент.
+
+
+
+
 63. Сформировать трехмерный массив не повторяющимися двузначными числами показать его построчно на экран выводя индексы соответствующего элемента
+
+
 64. Показать треугольник Паскаля *Сделать вывод в виде равнобедренного треугольника
+
+
+
+
 65. Спирально заполнить двумерный массив:
   1  2  3  4
  12 13 14  5
  11 16 15  6
  10  9  8  7 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Рекурсия
 66. Показать натуральные числа от 1 до N, N задано
