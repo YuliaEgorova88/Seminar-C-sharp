@@ -2345,11 +2345,9 @@ PrintArray(MatrixSolution(MyArray1, MyArray2));
 
 */
 //62. В двумерном массиве целых чисел. Удалить строку и столбец, на пересечении которых расположен наименьший элемент.
-
-//Console.WriteLine("Введите количество строк");
-int str = 3;//int.Parse(Console.ReadLine());
-//Console.WriteLine("Введите количество столбцов");
-int coll = 7;//int.Parse(Console.ReadLine());
+/*
+int y = 3;
+int x = 5;
 
 int[,] NewArray(int a, int b)
 {
@@ -2357,75 +2355,443 @@ int[,] NewArray(int a, int b)
     return array;
 }
 
-int[,] FillArray(int[,] matr)
+int[,] FillArray(int[,] array)
 {
-    for (int i = 0; i < matr.GetLength(0); i++)
-        for (int j = 0; j < matr.GetLength(1); j++)
+    for (int i = 0; i < array.GetLength(0); i++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            matr[i, j] = new Random().Next(0, 100);
+            array[i, j] = new Random().Next(0, 100);
         }
-    return matr;
+    return array;
 }
 
-void PrintArray(int[,] matr)
+void PrintArray(int[,] array)
 {
-    for (int i = 0; i < matr.GetLength(0); i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < matr.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            Console.Write($"{matr[i, j]}  ");
+            Console.Write($"{array[i, j]}  ");
         }
         Console.WriteLine();
     }
 }
 
+(int minStr, int minCol, int minValue) FindMin(int[,] array)
+{
+    int minValue = array[0, 0];
+    int minStr = 0;
+    int minCol = 0;
+    for (int i = 0; i < array.GetLength(0); i++)
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (array[i, j] < minValue)
+            {
+                minValue = array[i, j];
+                minStr = i;
+                minCol = j;
+            }
+        }
+    return (minStr, minCol, minValue);
+}
+
+int[,] ReWrite(int[,] array, int a, int b)
+{
+    int[,] newArray = new int[(array.GetLength(0) - 1), (array.GetLength(1) - 1)];
+    int l = 0;
+    int k = 0;
+    for (int i = 0; i < newArray.GetLength(0); i++)
+    {
+        if (k == a && (k < array.GetLength(0) - 1)) k++;
+        for (int j = 0; j < newArray.GetLength(1); j++)
+        {
+            if (l == b && (l < array.GetLength(1) - 1)) l++;
+            newArray[i, j] = array[k, l];
+            if (l < (array.GetLength(1) - 1)) l++;
+        }
+        if (k < array.GetLength(0) - 1) k++;
+        l = 0;
+    }
+    return newArray;
+}
+
+int[,] MyArray = NewArray(y, x);
+int[] Summ = new int[MyArray.GetLength(0)];
+FillArray(MyArray);
+Console.WriteLine();
+PrintArray(MyArray);
+Console.WriteLine();
+(int minStr, int minCol, int minValue) result = FindMin(MyArray);
+Console.WriteLine("Минимальный элемент массива: " + result.Item3);
+Console.WriteLine();
+
+PrintArray(ReWrite(MyArray, result.minStr, result.minCol)); */
+
+
+
+//63.Сформировать трехмерный массив не повторяющимися двузначными числами показать его построчно на экран выводя индексы соответствующего элемента
+/*
+
+int y = 3;
+int x = 3;
+int z = 3;
+
+
+int[,,] NewArray(int y, int x, int z)
+{
+    int[,,] array = new int[y, x, z];
+    return array;
+}
+
+int[,,] FillArray(int[,,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+        for (int j = 0; j < array.GetLength(1); j++)
+            for (int k = 0; k < array.GetLength(2); k++)
+            {
+                array[i, j, k] = new Random().Next(10, 99);
+            }
+    return array;
+}
+
+void PrintArray(int[,,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+            for (int k = 0; k < array.GetLength(2); k++)
+            {
+                Console.Write($"{array[i, j, k]}  ");
+            }
+        Console.WriteLine();
+    }
+}
+int[,,] MyArray = NewArray(y, x, z);
+
+FillArray(MyArray);
+PrintArray(MyArray);*/
+
+
+/*64. Показать треугольник Паскаля *Сделать вывод в виде равнобедренного треугольника
+
+int row = 9;
+int[,] triangle = new int[row, row];
+const int cellWidth = 1;
+
+void FillTriangle()
+{
+    for (int i = 0; i < row; i++)
+    {
+        triangle[i, 0] = 1;
+        triangle[i, i] = 1;
+    }
+
+    for (int i = 2; i < row; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            triangle[i, j] =
+                triangle[i - 1, j - 1] + triangle[i - 1, j];
+        }
+    }
+}
+
+void PrintTriangle()
+{
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < row; j++)
+        {
+            if (triangle[i, j] != 0)
+                Console.Write($"{triangle[i, j],cellWidth}");
+        }
+        Console.WriteLine();
+    }
+}
+
+void Magic()
+{
+    int col = cellWidth * row;
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j <= i; j++)
+        {
+            Console.SetCursorPosition(col, i + 1);
+            //if (triangle[i, j] != 0) Console.Write($"{triangle[i, j],cellWidth}");
+            if (triangle[i, j] % 2 != 0) Console.WriteLine("*");
+
+            col += cellWidth * 2;
+        }
+        col = cellWidth * row - cellWidth * (i + 1);
+
+        Console.WriteLine();
+    }
+}
+
+Console.ReadLine();
+FillTriangle();
+//PrintTriangle();
+Console.ReadLine();
+Magic();*/
 
 
 
 /*
-63. Сформировать трехмерный массив не повторяющимися двузначными числами показать его построчно на экран выводя индексы соответствующего элемента
+//65. Спирально заполнить двумерный массив:
+//   1  2  3  4
+//  12 13 14  5
+//  11 16 15  6
+//  10  9  8  7 
 
 
-64. Показать треугольник Паскаля *Сделать вывод в виде равнобедренного треугольника
+//Console.WriteLine("Введите количество строк");
+int str = 3;//int.Parse(Console.ReadLine());
+//Console.WriteLine("Введите количество столбцов");
+int coll = 3;//int.Parse(Console.ReadLine());
+
+int[,] mass = new int[str, coll];
+
+int[,] FillArray(int[,] array)
+{
+    int numbers = 1;
+    int num = array.GetLength(0);
+    if (num % 2 != 0) array[num / 2, num / 2] = num * num;
+    for (int i = 0; i < (num / 2); i++)
+    {
+        for (int j = i; j < (num - i); j++)    //(num - i) - чтобы с каждым разом сторона становилась меньше
+        {
+            array[i, j] = numbers;
+            numbers++;
+        }
+        for (int k = 1; k < (num - i - i); k++)// начинаем с первого эл. т.k. нулевой уже записан
+        {
+            array[k + i, (num - i) - 1] = numbers;// (num - i) - 1 - отнимаем 1 чтоб не выходило за рамки массива
+            numbers++;
+        }
+        for (int l = (num - 2) - i; l >= i; l--) // (num - 2) - i - отнимаем 1 чтоб не выходило за рамки массива и еще одну 1 
+        {
+            array[(num - i) - 1, l] = numbers;
+            numbers++;
+        }
+        for (int m = ((num - i) - 2); m > i; m--)
+        {
+            array[m, i] = numbers;
+            numbers++;
+        }
+    }
+    return array;
+}
+
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($"{array[i, j]}   ");
+        }
+        Console.WriteLine();
+    }
+}
+
+PrintArray(FillArray(mass));*/
 
 
 
+//Рекурсия
+//66. Показать натуральные числа от 1 до N, N задано
+/*
+void PrintNum(int n)
+{
+    if (n < 1) return;
+    PrintNum(n - 1);
+    Console.Write(n + " ");
+}
 
-65. Спирально заполнить двумерный массив:
-  1  2  3  4
- 12 13 14  5
- 11 16 15  6
- 10  9  8  7 
-
-
-
-
-
-
-
+PrintNum(10);*/
 
 
+//67. Показать натуральные числа от N до 1, N задано
+/*
+void PrintNum(int n)
+{
+    if (n >= 1) return;
+    Console.Write(n + " ");
+    PrintNum(n + 1);
+
+}
+
+PrintNum(-10);*/
 
 
+//68. Показать натуральные числа от M до N, N и M заданы
+
+/*
+
+void PrintNum(int m, int n)
+{
+    if (n < m) return;
+    PrintNum(m, n - 1);
+    //Console.Write(n + " ");
+    Console.Write($"{n} ");
+
+}
+
+Console.Write("Input number M: ");
+int m = int.Parse(Console.ReadLine());
+Console.Write("Input number N: ");
+int n = int.Parse(Console.ReadLine());
+
+PrintNum(m, n);
+*/
 
 
+//69. Найти сумму элементов от M до N, N и M заданы
+/*
+//Console.Write("Input number M: ");
+int m = 1;//int.Parse(Console.ReadLine());
+//Console.Write("Input number N: ");
+int n = 5;//int.Parse(Console.ReadLine());
+
+int SummNumber(int m, int n)
+{
+    if (m == n) return n;
+    else
+    {
+        if (m > n) return m + SummNumber((m - 1), n);
+        else return m + SummNumber((m + 1), n);
+    }
+}
+
+Console.WriteLine(SummNumber(m, n));
 
 
+*/
+
+//70. Найти сумму цифр числа
+/*
+
+int PrintNum(int number)
+{
+    if (number < 1) return 0;
+    return PrintNum(number / 10) + number % 10;
 
 
+}
 
-Рекурсия
-66. Показать натуральные числа от 1 до N, N задано
-67. Показать натуральные числа от N до 1, N задано
-68. Показать натуральные числа от M до N, N и M заданы
-69. Найти сумму элементов от M до N, N и M заданы
-70. Найти сумму цифр числа
-71. Написать программу вычисления функции Аккермана
-72. Написать программу возведения числа А в целую стень B
-73. Написать программу показывающие первые N чисел, для которых каждое следующее равно сумме двух предыдущих. Первые два элемента последовательности задаются пользователем
-74. В некотором машинном алфавите имеются четыре буквы «а», «и», «с» и «в». Покажите все слова, состоящие из n букв, которые можно построить из букв этого алфавита
+Console.Write("Input number: ");
+int number = int.Parse(Console.ReadLine());
+Console.WriteLine($"Summ of digits: {PrintNum(number)}");
+*/
 
-Почувствуй себя ничтожеством(или нетъ)
+/*
+//71. Написать программу вычисления функции Аккермана
+
+// A(m,n) =    if m = 0             n+1
+//             if m > 0  n = 0      a(m-1,1)
+//             if m > 0, n > 0       A(m-1, A(m, n -1)) 
+
+Console.WriteLine("Введите число N: ");
+int n = Convert.ToInt16(Console.ReadLine());
+
+Console.WriteLine("Введите число M: ");
+int m = Convert.ToInt16(Console.ReadLine());
+
+if (n < 0 || m < 0) Console.WriteLine("Введите положительные числа.");
+
+int AkkermanFunction(int m, int n)
+{
+    if (m == 0) return (n + 1);
+    if (m > 0 && n == 0) return AkkermanFunction(m - 1, 1);
+    if (m > 0 && n > 0) return AkkermanFunction(m - 1, AkkermanFunction(m, n - 1));
+    return AkkermanFunction(m, n);
+}
+
+Console.WriteLine(AkkermanFunction(n, m));
+*/
+
+
+//72. Написать программу возведения числа А в целую стень B
+/*
+Console.Write("Input number A: ");
+int a = int.Parse(Console.ReadLine());
+Console.Write("Input number B: ");
+int b = int.Parse(Console.ReadLine());
+
+int StepenPrint(int a, int b)
+{
+    if (b < 1) return 1;
+    return a * (StepenPrint(a, b - 1));
+}
+
+Console.WriteLine($"Число {a} в степени {b} = {StepenPrint(a, b)}");
+
+*/
+//73. Написать программу показывающие первые N чисел, для которых каждое следующее равно сумме двух предыдущих. Первые два элемента последовательности задаются пользователем
+
+/*
+int SumPare(int a, int b, int c)
+{
+    if (c < 4) return (a + b);
+    Console.Write(a + b + " ");
+    return SumPare(b, a + b, c - 1);
+}
+
+
+Console.WriteLine("Введите число 1:");
+int numA = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите число 2:");
+int numB = int.Parse(Console.ReadLine());
+int count = 10;
+
+Console.Write(SumPare(numA, numB, count - 1));
+*/
+/*
+Variant 2!!!!!
+
+int SummPare (int n, int a, int b)
+{
+    if (n < 4) 
+        return (a + b);
+
+    Console.Write(a + b + " ");
+    return SummPare(n - 1, b, a + b);
+}
+
+Console.WriteLine("Введите число 1:");
+int num1 = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите число 2:");
+int num2 = int.Parse(Console.ReadLine());
+
+int n = 10;
+
+Console.Write(num1 + " " + num2 + " ");
+Console.Write(SummPare(n, num1, num2));
+
+
+//74. В некотором машинном алфавите имеются четыре буквы «а», «и», «с» и «в». Покажите все слова, состоящие из n букв, которые можно построить из букв этого алфавита
+
+Console.WriteLine("Введите количество символов в слове: ");
+int num = int.Parse(Console.ReadLine());
+int n = 1;
+void FindWords(string alphabet, char[] word, int length = 0)
+{
+    if (length == word.Length)
+    {
+        Console.WriteLine($"{n++} {new string(word)}"); return;
+    }
+    for (int i = 0; i < alphabet.Length; i++)
+    {
+        word[length] = alphabet[i];
+        FindWords(alphabet, word, length + 1);
+    }
+}
+Console.WriteLine();
+FindWords("аисв", new char[num]);
+*/
+
+
+/*Почувствуй себя ничтожеством(или нетъ)
 75. Есть два массива info и data.
 Массив data состоит из нулей и единиц хранящий числа в двоичном представлении. Числа идут друг за другом без разделителей.
 Массив info состоит из чисел, которые представляют колличество бит чисел из массива data.
@@ -2438,6 +2804,62 @@ info = {2, 3, 3, 1 }
 выходные данные:
 1, 7, 0, 1
 Какие ошибки могут возникнуть при обработке наборов данных?
+
+///////////!!!!!!!!!!!!!!!!!!!!
+int[] data = {0, 1, 1, 1, 1, 0, 0, 0, 1 };
+int[] info = {2, 3, 3, 1 };
+int[] result=new int[info.Length];
+int k=0;//счетчик количества цифр в data
+Console.WriteLine("Цифры в data в двоичном выражении:");
+for (int i = 0; i < info.Length; i++) // разбиваем data на числа в длвочном коде на основе количества бит из info
+{
+    for (int j = 0; j < info[i]; j++)
+    {
+        Console.Write(data[k+j]+" ");
+    }
+    k+=info[i];
+    Console.Write(";");
+}
+k=0;
+for (int i = 0; i < info.Length; i++)//преобразуем выделенные числа в десятичные
+{
+    for (int j = 0; j < info[i]; j++)
+    {
+        result[i]+=data[k+j]*(int) Math.Pow(2,info[i]-1-j);
+    }
+    k+=info[i];
+}
+Console.WriteLine();
+Console.WriteLine("Цифры в data в десятичном выражении:");
+
+for (int i = 0; i < result.Length; i++)
+{
+    Console.Write(result[i]+" ");
+}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+int[] dataOne = { 0, 1, 1, 1, 1, 0, 0, 0, 1 };
+int[] infoOne = { 2, 3, 3, 1 };
+int n = 0;
+void PrintNum(int[] data, int[] info)
+{
+    for (int i = 0; i < info.Length; i++)
+    {
+        int number = 0;
+        for (int k = n; k < n + info[i]; k++)
+        {
+            number = number + (int)Math.Pow(2, (n + info[i] - k - 1)) * data[k];
+        }
+        Console.Write(number + " ");
+        n = n + info[i];
+    }
+}
+PrintNum(dataOne, infoOne);
+
+
+
+
+
 76. Есть число N. Скольно групп M, можно получить при разбиении всех чисел на группы, так чтобы в одной группе все числа были взаимно просты.
 Например для N = 50, M получается 6
 Одно из решений :
